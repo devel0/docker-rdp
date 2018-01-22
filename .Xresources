@@ -1,0 +1,3 @@
+XTerm*selectToClipboard: true
+XTerm*faceName: Liberation Mono
+XTerm*faceSize: 10

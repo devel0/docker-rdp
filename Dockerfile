@@ -15,17 +15,15 @@ RUN cd /usr/src/xrdp && git checkout tags/v0.9.5 && ./bootstrap && ./configure -
 RUN cd /usr/src && git clone https://github.com/neutrinolabs/xorgxrdp.git
 RUN cd /usr/src/xorgxrdp && git checkout tags/v0.2.5 && ./bootstrap && ./configure && make && make install
 
-# window manager
-RUN apt-get install -y i3-wm
-RUN apt-get install -y i3blocks
-RUN sed -i 's#status_command.*#status_command i3blocks#g' /etc/i3/config
-
 # term
 RUN apt-get install -y xterm
 
+# wm
+RUN apt-get install -y openbox
+
 # xinitrc config
-RUN echo "XTerm*selectToClipboard: true" >> /root/.Xresources && \
-	echo "[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources ; xterm" > /root/.xinitrc
+COPY .Xresources /root
+COPY .xinitrc /root
 
 # disable xrdp log
 RUN sed -i 's/EnableSyslog=true/EnableSyslog=false/g' /etc/xrdp/xrdp.ini && \
