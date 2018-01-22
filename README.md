@@ -1,6 +1,6 @@
 # docker-rdp
 
-ubuntu with rdp access, openbox wm and an xterm
+ubuntu with rdp access, [i3-wm](https://i3wm.org/docs/refcard.html) window manager and an xterm
 
 ## build image
 
