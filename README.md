@@ -1,6 +1,6 @@
 # docker-rdp
 
-ubuntu with rdp access, openbox window manager and an xterm
+docker-ubuntu + docker-dotnet + rdp access, openbox window manager and an xterm
 
 ## build image
 
