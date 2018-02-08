@@ -1,4 +1,4 @@
-FROM searchathing/ubuntu
+FROM searchathing/dotnet
 
 # xserver
 RUN apt-get install -y xorg xserver-xorg dbus-x11
