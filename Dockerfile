@@ -18,6 +18,9 @@ RUN cd /usr/src/xorgxrdp && git checkout tags/v0.2.5 && ./bootstrap && ./configu
 # term
 RUN apt-get install -y xterm
 
+# keyring
+RUN apt-get install -y gnome-keyring
+
 # wm
 RUN apt-get install -y xfce4 xfce4-terminal
 
