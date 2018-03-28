@@ -19,7 +19,7 @@ RUN cd /usr/src/xorgxrdp && git checkout tags/v0.2.5 && ./bootstrap && ./configu
 RUN apt-get install -y xterm
 
 # wm
-RUN apt-get install -y openbox
+RUN apt-get install -y xfce4 xfce4-terminal
 
 # xinitrc config
 COPY .Xresources /root
