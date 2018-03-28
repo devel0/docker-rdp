@@ -1,5 +1,7 @@
 FROM searchathing/dotnet
 
+RUN apt-get update
+
 # xserver
 RUN apt-get install -y xorg xserver-xorg dbus-x11
 
