@@ -1,6 +1,6 @@
 # docker-rdp
 
-docker-ubuntu + docker-dotnet + rdp access, openbox window manager and an xterm
+docker-ubuntu + docker-dotnet + rdp access, xfce window manager and a gnome-terminal
 
 ## build image
 
@@ -11,13 +11,13 @@ docker-ubuntu + docker-dotnet + rdp access, openbox window manager and an xterm
 ## run image
 
 ```
-docker run -tid --name=myrdp searchathing/rdp
+docker run -tid --name=myrdp searchathing/rdp:server-mgr
 ```
 
-## set container root password
+## set container devel0 password
 
 ```
-docker exec -ti myrdp passwd
+docker exec -ti myrdp passwd devel0
 ```
 
 ## install rdp client
