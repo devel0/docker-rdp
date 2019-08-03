@@ -5,6 +5,7 @@ docker-ubuntu + docker-dotnet + rdp access, openbox window manager and an xterm
 ## build image
 
 ```
+git checkout master
 ./build.sh
 ```
 
