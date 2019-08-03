@@ -1,6 +1,6 @@
 # docker-rdp
 
-docker-ubuntu + docker-dotnet + rdp access, xfce window manager and a gnome-terminal
+docker-ubuntu + docker-dotnet + rdp access, xfce window manager and a gnome-terminal ( user with sudo group )
 
 ## build image
 
