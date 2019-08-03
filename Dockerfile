@@ -1,21 +1,12 @@
-FROM searchathing/dotnet
+FROM searchathing/dotnet:server-mgr
 
 RUN apt-get update
 
 # xserver
 RUN apt-get install -y xorg xserver-xorg dbus-x11
 
-# dev prerequisites
-RUN apt-get install -y git autoconf libtool pkg-config gcc g++ make  libssl-dev libpam0g-dev libjpeg-dev libx11-dev libxfixes-dev libxrandr-dev \
-        flex bison libxml2-dev intltool xsltproc xutils-dev python-libxml2 g++ xutils libfuse-dev libmp3lame-dev nasm libpixman-1-dev nasm xserver-xorg-dev
-
-# xrdp from sources
-RUN cd /usr/src && git clone https://github.com/neutrinolabs/xrdp.git
-RUN cd /usr/src/xrdp && git checkout tags/v0.9.5 && ./bootstrap && ./configure --enable-fuse --enable-mp3lame --enable-pixman && make && make install && ln -s /usr/local/sbin/xrdp{,-sesman} /usr/sbin
-
-# xorgxrdp
-RUN cd /usr/src && git clone https://github.com/neutrinolabs/xorgxrdp.git
-RUN cd /usr/src/xorgxrdp && git checkout tags/v0.2.5 && ./bootstrap && ./configure && make && make install
+# xrdp
+RUN apt-get install -y xrdp xorgxrdp
 
 # term
 RUN apt-get install -y xterm
@@ -26,9 +17,11 @@ RUN apt-get install -y gnome-keyring
 # wm
 RUN apt-get install -y xfce4 xfce4-terminal
 
-# xinitrc config
-COPY .Xresources /root
-COPY .xinitrc /root
+# user sudo and xinitrc config
+RUN useradd -m -G sudo -s /bin/bash devel0
+COPY .Xresources /home/devel0
+COPY .xinitrc /home/devel0
+RUN chown -R devel0.devel0 /home/devel0
 
 # disable xrdp log
 RUN sed -i 's/EnableSyslog=true/EnableSyslog=false/g' /etc/xrdp/xrdp.ini && \

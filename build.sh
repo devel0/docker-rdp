@@ -6,4 +6,4 @@
 
 exdir=$(dirname `readlink -f "$0"`)
 
-docker build $args $* -t searchathing/rdp -f "$exdir"/Dockerfile "$exdir"/.
+docker build $args $* -t searchathing/rdp:server-mgr -f "$exdir"/Dockerfile "$exdir"/.
