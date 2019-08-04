@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ "$DEVEL0PWD" != "" ] && [ ! -e /root/.rdp-entrypoint-executed ]; then
+	echo "Setting devel0 passwd"
+	echo "devel0:$DEVEL0PWD" | chpasswd
+	touch /root/.rdp-entrypoint-executed
+fi
+
 killall xrdp
 killall xrdp-sesman
 
