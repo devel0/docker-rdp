@@ -29,4 +29,6 @@ RUN sed -i 's/EnableSyslog=true/EnableSyslog=false/g' /etc/xrdp/xrdp.ini && \
 
 COPY entrypoint.sh /entrypoint.d/rdp
 
+ENTRYPOINT [ "/root/run-entrypoints.sh" ]
+
 CMD /bin/bash
