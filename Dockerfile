@@ -1,4 +1,4 @@
-FROM searchathing/dotnet:server-mgr
+FROM searchathing/dotnet:focal
 
 RUN apt-get update
 
