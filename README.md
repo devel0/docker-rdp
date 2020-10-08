@@ -2,6 +2,8 @@
 
 docker-ubuntu + docker-dotnet + rdp access, xfce window manager and a gnome-terminal ( user with sudo group )
 
+*NOTE* : suggested replacement ( https://hub.docker.com/r/linuxserver/rdesktop )
+
 ## build image
 
 ```
