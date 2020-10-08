@@ -17,6 +17,9 @@ RUN apt-get install -y gnome-keyring
 # wm
 RUN apt-get install -y xfce4 xfce4-terminal
 
+# firefox
+RUN apt-get install -y firefox
+
 # user sudo and xinitrc config
 RUN useradd -m -G sudo -s /bin/bash devel0
 COPY .Xresources /home/devel0
